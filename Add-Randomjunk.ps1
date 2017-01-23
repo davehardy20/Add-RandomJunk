@@ -4,13 +4,14 @@
             Add random junk to a file and append a random suffix to the file name.
 
             .Description
-            The cmdlet will t
+            The cmdlet will take a folder or nested folders of powershell scripts and added random junk to the begining of the file in the form of a comment
+            it also adds a random suffix to the file name.
 
             .Parameter Length
             The amount of junk to generate.
 
             .Parameter Path
-            The path of the powershell files (ps1, psm1 & psd1), Can be a single file or nested folders.
+            The path of the powershell files (ps1, psm1 & psd1), Can be a single folder or nested folders.
 
             .Parameter Newpath
             The name of the new location for the junkified file/s.
