@@ -28,7 +28,8 @@
 param (
     [int]$Length, #length of random junk added to begining of file
     [String]$path, #source of files
-    [String]$newpath #place of junkified files
+    [String]$newpath, #place of junkified files
+    [String]$suffix=10 #length of the file name suffix
 )
 
 $set    = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!£$%^&*()_+}{[]#~'@;:".ToCharArray()
@@ -41,7 +42,7 @@ for ($x = 0; $x -lt $RandomLength; $x++) {
 $begin = "<#`n"
 $end = "`n#>`n"
 $final = $begin+$result+$end
-$randomfilename = -join ((65..90) + (97..122) | get-random -Count 10 | % {[char]$_})
+$randomfilename = -join ((65..90) + (97..122) | get-random -Count $suffix | % {[char]$_})
 
 #make a backup of the original files / folders
 $backup = $path + 'backup'
