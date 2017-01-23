@@ -25,10 +25,11 @@
             Version 0.1
 
             .Example
-            PS> Add-RandomJunk -Length 2048 -path C:\Users\daveh\Desktop\PowerSploit -newpath c:\users\daveh\Desktop\new-powersploit
+            PS> Add-RandomJunk -Length 2048 -path C:\Users\daveh\Desktop\PowerSploit -newpath c:\users\daveh\Desktop\new-powersploit -suffix 12
 
 
     #>
+    [cmdletbinding()]
     param (
         [Parameter(Mandatory=$true)][int]$Length, #length of random junk added to begining of file
         [Parameter(Mandatory=$true)][String]$path, #source of files
