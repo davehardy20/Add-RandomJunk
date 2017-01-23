@@ -39,18 +39,18 @@ for ($x = 0; $x -lt $RandomLength; $x++) {
     $result += $set | Get-Random 
 }
 $begin = "<#`n"
-$end = "`n#>`nStart-Sleep -Seconds 10"
+$end = "`n#>`n"
 $final = $begin+$result+$end
 $randomfilename = -join ((65..90) + (97..122) | get-random -Count 10 | % {[char]$_})
 
 #make a backup of the original files / folders
 $backup = $path + 'backup'
-Copy-Item -Path $path -Destination $backup -Recurse
+Copy-Item -Path $path -Destination $backup -Recurse -Force
 $files = Get-ChildItem -Recurse -Path $path -Exclude -neq -Filter *.ps*1
 foreach ($file in $files)
 {
 @($final) + (Get-Content $file) | Set-Content $file
-Rename-Item $file -NewName ($file.BaseName + "-" + $randomfilename + $file.Extension)
+Rename-Item $file -NewName ($file.BaseName + "-" + $randomfilename + $file.Extension) -Force
 }
 Rename-Item $path $newpath -Force
 Rename-Item $backup $path -Force
