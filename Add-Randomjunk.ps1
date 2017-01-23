@@ -16,6 +16,9 @@
             .Parameter Newpath
             The name of the new location for the junkified file/s.
 
+            .parameter Suffix
+            The length of the file name suffix
+
             Written by Dave Hardy, davehardy20@gmail.com @davehardy20
 
             Version 0.1
